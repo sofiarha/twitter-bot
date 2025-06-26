@@ -34,13 +34,13 @@ print('we loaded the auth variables')
 
 def tweet_a_woman(tweepy_client):
     # debugging: checking to see that the function is running
-    print('fetching cats from the MET...')
+    print('fetching women from the MET...')
 
     r1 = requests.get("https://collectionapi.metmuseum.org/public/collection/v1/search?q=cat")
     parsed = r1.json()
 
     # grabbing a random work from the top 6000
-    number = randint(1, 6000)
+    number = randint(1, 600)
 
     # grabbing data about the individual work
     obj_id = parsed['objectIDs'][number]
@@ -74,7 +74,7 @@ def tweet_a_woman(tweepy_client):
     # setting up the tweet text
     tweet_text = f"{title}, {artist}, {gender}. See more: {url}"
     print('tweeting cats from the MET...')
-    tweepy_client.create_tweet(text=tweet_text, media_ids=[media_id])
+    api.update_status(status=tweet_text, media_ids=[media_id])
  
 # calling the function with the auth data as parameter
 tweet_a_woman(client)
