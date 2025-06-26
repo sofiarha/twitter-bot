@@ -73,8 +73,9 @@ def tweet_a_woman(tweepy_client):
 
     # setting up the tweet text
     tweet_text = f"{title}, {artist}, {gender}. See more: {url}"
-    print('tweeting cats from the MET...')
+    print('tweeting women from the MET...')
     api.update_status(status=tweet_text, media_ids=[media_id])
  
 # calling the function with the auth data as parameter
 tweet_a_woman(client)
+
